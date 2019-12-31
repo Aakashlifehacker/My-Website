@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <link rel="icon" href="~/Images/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Zachariasz Jankowski</title>
+    <meta name="description" content="Portfolio website">
+    <meta name="keywords" content="Zachariasz Jankowski, artificial intelligence">
+    <meta name="author" content="Zachariasz Jankowski">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js" SameSite="None"></script>
+</head>
+
+@{
+    String a = "";
+    String f = "";
+    String p = "";
+    String resize = "";
+
+    switch (ViewBag.Message) {
+        case ("Feed"): { f = "active"; break; }
+        case ("AboutMe"): { a = "active"; break; }
+        case ("Projects"): { p = "active";resize = "resize();"; break; }
+    }
+
+
+    }
+
+
+<body onresize="resizer()">
+    <header>
+        <nav class="navbar navbar-dark bg-main navbar-expand-lg fixed-top ">
+            <a class="cz navbar-brand offset-lg-2 pl-3" href="~/feed"><img src="~/Images/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Zachariasz Jankowski</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="special collapse navbar-collapse" id="mainmenu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link @f" href="~/feed"> Feed </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @a" href="~/aboutme"> About me </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @p" href="~/projects"> Projects </a>
+                    </li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    @RenderBody()
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+
+        function resizer() {//called every time screan size changes
+            $(".article").css("min-height", window.innerHeight - 103);
+            @resize
+            
+        }
+        $(document).ready(resizer());
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

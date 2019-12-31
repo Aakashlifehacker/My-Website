@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
+
+<main>
+
+
+
+    <!-- SETTING!!!!!!!! -->
+
+    <div class="d-none d-xl-block settings col-xl-2 offset-xl-2 position-fixed ">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded window ">
+            <h5 class="p-2">Content to display:</h5>
+            <hr class="m-0 p-0">
+            <div class=" row cell form-check form-check-inline m-0 p-2">
+                <label class="oflow form-check-label" for="insta"><img src="~/Images/insta.png" width="30" height="30" class="d-inline-block mr-1 " alt=""><a target='_blank' href="https://www.instagram.com/zaqlean/">Zaqlean</a></label>
+                <input class="form-check-input ml-auto" type="checkbox" id="insta" onclick="Filtering()" checked>
+            </div>
+            <hr class="m-0 p-0">
+            <div class=" row cell form-check form-check-inline m-0 p-2">
+                <label class="oflow form-check-label" for="blog"><img src="~/Images/blogspot.png" width="30" height="30" class="d-inline-block mr-1 " alt=""><a target='_blank' href="https://computersciencebypolishguy.blogspot.com/">Computer Science</a></label>
+                <input class="form-check-input ml-auto" type="checkbox" id="blog" onclick="Filtering()" checked>
+            </div>
+            <hr class="m-0 p-0">
+            <div class="row cell form-check form-check-inline m-0 p-2">
+                <label class="oflow form-check-label" for="twitter"><img src="~/Images/tw.png" width="30" height="30" class="d-inline-block mr-1 " alt=""><a target='_blank' href="https://twitter.com/Zachari39380267">Zachariasz Jankowski</a></label>
+                <input class="form-check-input ml-auto" type="checkbox" id="twitter" onclick="Filtering()" checked>
+            </div>
+            <hr class="m-0 p-0">
+
+        </div>
+    </div>
+
+
+    <!-- Recomended!!!!!!!! -->
+
+    <div class="d-none d-xl-block featured col-xl-2  offset-xl-8 position-fixed">
+        <div class="shadow-sm p-3 mb-5 bg-white rounded window ml-auto ">
+            <h5 class="pb-3">About this section</h5>
+            <p>
+
+
+                The posts you see on the left load dynamically from the server.
+                If you want to find out how this and other features have been
+                developed - see the <a href="~/projects/website">website documentation</a>.
+
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="content col-lg-6 offset-lg-3  col-xl-4 offset-xl-4 " id="frame">
+        <div class="">
+            <div class="container col-lg-12">
+                @* @if (SignInManager.IsSignedIn(User))
+                {
+                    <div class=" shadow-sm p-3 mb-2 bg-white rounded">
+                       <h5>Create new post</h5>
+                       <small>(Posting as @User.Identity.Name)</small>
+                       <textarea class="newpost" name="Text1" cols="40" rows="5"></textarea><br>
+                           <input type="submit" value="Submit">
+                       
+                    </div>
+                } *@
+
+
+            </div>
+            <div class="end col-lg-12">
+
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<script src="~/js/filter.js"></script>
+<script src="~/js/Filler.js"></script>
