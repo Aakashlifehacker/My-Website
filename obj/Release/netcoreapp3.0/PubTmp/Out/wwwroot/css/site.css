@@ -1,0 +1,246 @@
+﻿
+.newpost {
+    min-height: 100px;
+    width:100%;
+}
+.toast-bottom {
+    bottom: 12px;
+    left: 12px;
+    margin: 0 auto;
+}
+
+.transparentButton {
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    cursor: pointer;
+}
+.fnt a{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+}
+
+.oflow {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.lastp {
+    margin-top: 50px;
+    padding-bottom: 250px;
+}
+
+.backBG {
+    background-color: rgba(255,255,255,.8);
+}
+
+.backProject {
+    margin-bottom: 120px;
+}
+
+.titleTop {
+    background-color: rgba(255,255,255,.9);
+}
+
+
+
+.title {
+    background-color: rgba(2,2,2,.9);
+}
+
+.top_account {
+    padding-top: 150px;
+    background-image: url("/Images/profile_background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 220px;
+}
+
+.top_andro {
+    padding-top: 40px;
+    background-image: url("/Images/andro.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.top_web {
+    padding-top: 40px;
+    background-image: url("/Images/website.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.cpr {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: grey;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+
+
+.sect {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: #f7533d;
+    cursor: pointer;
+    color: white;
+}
+
+.par {
+    font-family: 'Roboto Slab', serif;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #fecac3;
+}
+
+
+.scope {
+    background-color: #f7533d;
+    color: #fff;
+}
+
+
+.projects {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #f7533d;
+}
+
+.under {
+    font-family: 'Julius Sans One', sans-serif;
+    color: grey;
+}
+
+.kafelek {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.popper {
+    padding-top: 57px;
+}
+
+img {
+    image-orientation: from-image;
+}
+
+.email input {
+    color: #f7533d;
+    width: 300px;
+}
+
+.article i {
+    font-style: italic;
+}
+
+.article strong {
+    font-size: 18px;
+}
+
+.article {
+    padding-top: 50px;
+    padding-bottom: 100px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 17px;
+    min-height: 100vh;
+}
+
+.post {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #f7533d;
+}
+
+.content {
+    margin-top: 100px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: black;
+}
+
+.featured {
+    padding-bottom: 1000px;
+    margin-top: 0px;
+    color: black;
+}
+
+.settings {
+    padding-bottom: 1000px;
+    margin-top: 0px;
+    color: black;
+}
+
+
+.window {
+    background-color: white;
+    padding: 20px;
+}
+
+.cell {
+    width: 100%;
+    background-color: white;
+}
+
+h6 {
+    font-size: 20px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 20px;
+}
+
+.special ul {
+    margin-right: 25%;
+}
+
+.jumpers {
+    text-align: center;
+}
+
+    .jumpers img {
+        width: 100%;
+        height: auto;
+    }
+
+    .jumpers p {
+        margin-bottom: 30px;
+    }
+
+    .jumpers figcaption {
+        margin-top: 8px;
+    }
+
+
+
+.navbar {
+    min-height: 57px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.bg-main {
+    background-color: #22233a !important;
+}

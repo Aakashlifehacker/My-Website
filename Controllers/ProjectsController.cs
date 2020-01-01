@@ -32,7 +32,7 @@ namespace MVC.Controllers
             string result;
             int first=0;
             using (WebClient client = new WebClient()) {
-            result = client.DownloadString("https://github.com/JankowskiZachariasz/My-Website/commits/master");}
+            result = client.DownloadString("https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master");}
             if(result.Contains("relative-time datetime=")){
                 first = result.IndexOf("relative-time datetime=") + "relative-time datetime=".Length + 1;
             }

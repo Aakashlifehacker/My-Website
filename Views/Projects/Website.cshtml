@@ -23,16 +23,27 @@
             <div class="pt-5 col-lg-10 offset-lg-1">
 
 
+                @{
+                    string timeSpan="";
+                    int days = (int)ViewData["days"];
+                    if(days==0)timeSpan="today";
+                    else if(days>0&&days<30)timeSpan=days.ToString()+" days ago";
+                    else if(days>=30){
+                        int fullMonths=days%30;
+                        if(fullMonths==1) timeSpan=fullMonths.ToString()+" month ago";
+                        else timeSpan=fullMonths.ToString()+" months ago";
+                    }
+                }
 
 
 
 
                 <div class="d-flex justify-content-start">
-                    <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Repository: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website"> Link</a></i>
+                    <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Repository: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski"> Link</a></i>
                 </div>
 
                 <div class="d-flex justify-content-start">
-                    <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Last update: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website/commits/master"> @ViewData["days"] days ago</a></i>
+                    <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Last update: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master"> @timeSpan</a></i>
                 </div>
 
                 <div class="d-flex justify-content-start">

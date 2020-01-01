@@ -42,16 +42,12 @@ namespace MVC.Controllers
 
         }
 
-        public ActionResult Json(int id)
+        public async Task<ActionResult> Json(int id)
         {
             var x = _context.posts.Count();
             if (id > x) return Json(new { id = -1 });
-            var posts = _context.posts.First(a => a.id == id);
-            posts.liked = (_context.like.Where(b => b.post == id && b.username == User.Identity.Name).Any());
-            DateTime posted = Convert.ToDateTime(posts.Time); 
-            DateTime today = DateTime.Now;
-            int total =(int)(today - posted).TotalDays;
-            posts.Time=total+" days ago";
+            var posts = await _context.posts.FirstAsync(a => a.id == id);
+            posts.liked = await (_context.like.Where(b => b.post == id && b.username == User.Identity.Name).AnyAsync());
             return Json(posts);
         }
         public async Task<int> ResolveLikes(int id)
