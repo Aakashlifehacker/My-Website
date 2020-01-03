@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Zachariasz_Jankowski.Models;
-using Newtonsoft.Json;
 using Zachariasz_Jankowski.Data;
 using System.Diagnostics;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity;
+
 
 
 namespace MVC.Controllers
@@ -19,11 +14,9 @@ namespace MVC.Controllers
     public class FeedController : Controller
     {
 
-        private readonly ILogger<FeedController> _logger;
-
-        public FeedController(ILogger<FeedController> logger)
+        public FeedController()
         {
-            _logger = logger;
+            
             var optionsBuilder = new DbContextOptionsBuilder<DataDbContext>();
             optionsBuilder.UseSqlite("Data Source=data.db");
             _context = new DataDbContext(optionsBuilder.Options);
@@ -33,6 +26,7 @@ namespace MVC.Controllers
 
         protected override void Dispose(bool disposing)
         {
+            //garbage collector won't dispose datbase connection properly
             _context.Dispose();
         }
         public IActionResult Index()
@@ -42,17 +36,19 @@ namespace MVC.Controllers
 
         }
 
+        //This method sends new posts in the form of JSON files
         public async Task<ActionResult> Json(int id)
         {
             
-            var x = _context.posts.Count();
-            int dbId = x - id+1;
-            if (id > x) return Json(new { id = -1 });
-            var posts = await _context.posts.FirstAsync(a => a.id == dbId);
-            posts.ol = id;
-            posts.liked = await (_context.like.Where(b => b.post == dbId && b.username == User.Identity.Name).AnyAsync());
+            var x = _context.posts.Count();//how many posts in the database
+            int dbId = x - id+1;//translating incremental numbers from the client into DB ids (the newest post should be sent first and it has the biggest number as it's id)
+            if (id > x) return Json(new { id = -1 });//"-1" is a code that dispalys "You've seen it all" message
+            var posts = await _context.posts.FirstAsync(a => a.id == dbId); //getting the post with the given id from the database
+            posts.ol = id;//to enable client to distinguish posst and keep them in the correct order
+            posts.liked = await (_context.like.Where(b => b.post == dbId && b.username == User.Identity.Name).AnyAsync());//checking if the post has been liked by the current user
             return Json(posts);
         }
+        //counting likes
         public async Task<int> ResolveLikes(int id)
         {
             var c = await _context.posts.FirstAsync(a => a.id == id);
@@ -60,17 +56,14 @@ namespace MVC.Controllers
             await _context.SaveChangesAsync();
             return c.Likes;
 
-
-
         }
         public async Task<int> AddLike(int id)
         {
             if (!await _context.like.Where(b => b.post == id && b.username == User.Identity.Name).AnyAsync())
             {
-                //Like lik = new Like { post = id, username = User.Identity.Name,};
+                
                 Like like = new Like { post = id, username = User.Identity.Name, };
                 await _context.AddAsync(like);
-                //await _context.AddAsync(lik);
                 await _context.SaveChangesAsync();
                 return await ResolveLikes(id);
             }

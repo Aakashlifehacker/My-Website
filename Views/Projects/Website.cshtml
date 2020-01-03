@@ -73,8 +73,12 @@
 
                 <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('2')"><h4 class="mb-0">Project Structure</h4> <h4 id="i2" class="mb-0 ml-auto mr-2">+</h4> </div>
                 <div id="t2" class="par mb-2">
-                    <p class=" p-2 ">This project was generated and built with the MVC design pattern in mind. The main implication it has is a very straightforward structure that I will briefly introduce in this section. 
-                    The following are some essential project files that I've been working on:</p>
+
+                    
+
+                    <p class=" p-2 ">This project was generated and built with the <a target="_blank" href="https://computersciencebypolishguy.blogspot.com/2020/01/mvc-design-pattern.html"> MVC design pattern</a> in mind. Hence, it has a very straightforward structure that I will briefly introduce in this section. </p>
+                    <a target="_blank" href="\Images\projects\Project_Structure.png"><img src="\Images\projects\Project_Structure.png" width="100%" class="d-inline-block mr-1 " alt=""></a>
+                    <p class="p-2">Following are some essential project files that I've been working on:</p>
                     <p class="pl-4 "><b>Controllers</b> - their code is executed in response to incoming client requests. There is a separate Controller for every section of this website.</p>
                     <ul>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Controllers/FeedController.cs">FeedController.cs</a> <i  class="codeComment"> <- Sends posts to the client</i></li>
@@ -91,29 +95,24 @@
                     </ul>
                     <p class="pl-4 "><b>Views </b>are the actual documents in the form of cshtml files that are sent to a client. They contain some C# code that gets processed by RazorPages on the server-side.   </p>
                     <ul>
-                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Shared/_Layout.cshtml">_Layout.cshtml</a> <- Parts that are common for all the sections</li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Shared/_Layout.cshtml">_Layout.cshtml</a><i class="codeComment"> <- Parts that are common for all the sections </i> </li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Feed/Index.cshtml">Feed/Index.cshtml.cs</a></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/AboutMe/Index.cshtml">AboutMe/Index.schtml</a></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Projects/Index.cshtml">Projects/Index.schtml</a></li>
                         
 
                     </ul>
-                    <p class="pl-4 ">Scripts:</p>
+                    <p class="pl-4 "><b>Scripts</b> - client-side javascript code.</p>
                     <ul>
-                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/Filler.js">Filler.js</a> <- pulls posts formaction the server</li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/Filler.js">Filler.js</a><i class="codeComment"> <- pulls posts from the server </i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/like.js">like.js</a><i class="codeComment"> <- processes like & dislike actions </i></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/copy.js">copy.js</a></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/filter.js">filter.js</a></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/folding.js">folding.js</a></li>
                         <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/projects.js">projects.js</a></li>
+                        
                     </ul>
-                   
 
-
-                    
-                    
-                    <a target="_blank" href="\Images\projects\Project_Structure.png"><img src="\Images\projects\Project_Structure.png" width="100%" class="d-inline-block mr-1 " alt=""></a>
-                   
-                    <p class=" p-2 ">Some further text</p>
                 </div>
 
 

@@ -18,13 +18,14 @@ function like(i) {
                 document.getElementById("Count" + i).innerHTML = data.count;
             
         });
+        //jquery function is asynchronous so the animation is displayed instantly
         if (signed) {
             document.getElementById('heart' + i).src = '/Images/heart.gif';
 
             setTimeout(function () {
 
                 document.getElementById('heart' + i).src = '/Images/heart_full.png';
-            }, 400);
+            }, 400);//400ms - this is how long it takes for heart.gif to go through one cycle. after that .gif file is replaced with the static .png image
         }
         
     }
@@ -41,12 +42,13 @@ function like(i) {
 
         });
 
+        //jquery function is asynchronous so the animation is displayed instantly
         if (signed) {
-            document.getElementById('heart' + i).src = '/Images/heartR.gif';//dislike
+            document.getElementById('heart' + i).src = '/Images/heartR.gif';
             setTimeout(function () {
 
                 document.getElementById('heart' + i).src = '/Images/heart.png';
-            }, 400);
+            }, 400);//400ms - this is how long it takes for heartR.gif to go through one cycle. after that .gif file is replaced with the static .png image
         }
 
     }
