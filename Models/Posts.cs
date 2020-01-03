@@ -17,6 +17,7 @@ namespace Zachariasz_Jankowski.Models
         public int id { get; set; }
         public int type { get; set; }
         public bool liked { get; set; }
+        public int ol { get; set; }
 
 
 

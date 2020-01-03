@@ -1,18 +1,18 @@
 ﻿
 function getPost() {
     
-    $.getJSON("/feed/Json/"+posts++, function (data) {
+    $.getJSON("/feed/Json/" + posts++, function (data) {
         var doc = "";
         if (data.id == -1 & !bottom) {
             bottom = true;
             doc = "<div class=' lastp shadow-sm p-3 mb-2 bg-white rounded'><hr><div class='d-flex justify-content-center align-items-baseline'><h3 class:'mt-5 mb-5'>You've seen it all! 🙂 </h3></div><hr></div>";
             $(doc).appendTo(".end");
-            
+
         }
         else if (data.type == 0) {//instagram
             var heart = "/Images/heart.png";
             if (data.liked) heart = "/Images/heart_full.png";
-            doc = "<div id='ii"+ids++ +"'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
+            doc = "<div id='ii" + data.id + "'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
                 data.profilePhoto + "' class='rounded-circle d-inline-block align-top mr-3 ml-3 ' alt = 'Avatar' width = '50' height = '50' > <div class='d-inline-block'><div><h6>" +
                 data.username + "<img src='/Images/insta.png' width='20' height='20' class='d-inline-block ml-1 ' alt=''></h6 ></div > <div class='pt-0'><small>" +
                 data.time + "</small ></div></div ></div ><div class='d-inline-block float-right'><a class='backBG p-1 pr-2' target='_blank' href='" +
@@ -25,13 +25,13 @@ function getPost() {
                 heart + "' width='40' height='40' class=' mr-1'></div></div><div id='Count" +
                 data.id + "'>" +
                 data.likes + "</div></div></div>";
-            $(doc).appendTo(".container"); 
+            
         }
 
-        else if (data.type == 1 ) {//blogspot without photo
+        else if (data.type == 1) {//blogspot without photo
             var heart = "/Images/heart.png";
             if (data.liked) heart = "/Images/heart_full.png";
-            doc = "<div id='bb" + ids++ + "'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
+            doc = "<div id='bb" + data.id + "'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
                 data.profilePhoto + "' class='rounded-circle d-inline-block align-top mr-3 ml-3 ' alt = 'Avatar' width = '50' height = '50' > <div class='d-inline-block'><div><h6>" +
                 data.username + "<img src='/Images/blogspot.png' width='20' height='20' class='d-inline-block ml-1 ' alt=''></h6 ></div > <div class='pt-0'><small>" +
                 data.time + "</small ></div></div ></div ><div class='d-inline-block float-right'><a class='backBG p-1 pr-2' target='_blank' href='" +
@@ -43,12 +43,12 @@ function getPost() {
                 heart + "' width='40' height='40' class=' mr-1'></div></div><div id='Count" +
                 data.id + "'>" +
                 data.likes + "</div></div></div>";
-            $(doc).appendTo(".container");
+            
         }
-        else if (data.type == 2 ) {//twitter without photo
+        else if (data.type == 2) {//twitter without photo
             var heart = "/Images/heart.png";
             if (data.liked) heart = "/Images/heart_full.png";
-            doc = "<div id='tt" + ids++ + "'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
+            doc = "<div id='tt" + data.id + "'class='post shadow-sm p-3 mb-2 bg-white rounded'><div class='row d-inline-block'><img src='" +
                 data.profilePhoto + "' class='rounded-circle d-inline-block align-top mr-3 ml-3 ' alt = 'Avatar' width = '50' height = '50' > <div class='d-inline-block'><div><h6>" +
                 data.username + "<img src='/Images/tw.png' width='20' height='20' class='d-inline-block ml-1 ' alt=''></h6 ></div > <div class='pt-0'><small>" +
                 data.time + "</small ></div></div ></div ><div class='d-inline-block float-right'><a class='backBG p-1 pr-2' target='_blank' href='" +
@@ -60,13 +60,30 @@ function getPost() {
                 heart + "' width='40' height='40' class=' mr-1'></div></div><div id='Count" +
                 data.id + "'>" +
                 data.likes + "</div></div></div>";
-            $(doc).appendTo(".container");
+                
         }
-        
+        if (data.id != -1) {
+
+
+
+            var wrapper = $('.posts'),
+                items = wrapper.children();
+            if (items.length < data.ol + 5) {
+
+                for (var i = 0; i < ((data.ol + 5) - items.length); i++) {
+                    wrapper.append($("<div class='container" + divs++ + " col-lg-12'><div/>"));
+                }
+            }
+            $(doc).appendTo(".container" + data.ol);
+        }
         Filtering();
-    });
+
+    }
+    );
     
 }
+
+
 function howMuchOverflow() {
     var div = document.getElementById('frame').clientHeight;
     var view = window.innerHeight;
@@ -84,67 +101,19 @@ window.addEventListener('scroll', event => {
     if (howMuchOverflow() < 50 & !bottom) { getPost(); }
 });
 
-function like(i) {
-
-    
-    if (document.getElementById("heart" + i).getAttribute("data-on")=="true")
-        document.getElementById("heart" + i).setAttribute("data-on", "false")
-    else document.getElementById("heart" + i).setAttribute("data-on", "true");
-    if (document.getElementById("heart" + i).getAttribute("data-on") == "true") {
-        $.getJSON("/feed/like/" + i, function (data) {
-            console.log(data.count);
-            if (data.count == -2) {
-                toastr.warning('Please sign in to like posts!');
-                
-            }
-                
-            else
-               
-                document.getElementById("Count" + i).innerHTML = data.count;
-            
-        });
-        if (signed) {
-            document.getElementById('heart' + i).src = '/Images/heart.gif';
-
-            setTimeout(function () {
-
-                document.getElementById('heart' + i).src = '/Images/heart_full.png';
-            }, 400);
-        }
-        
-    }
-
-    else {
-        $.getJSON("/feed/dislike/" + i, function (data) {
-            console.log(data.count);
-            if (data.count == -2) {
-                toastr.warning('Please sign in to like posts!');
-                
-            }
-            else
-                document.getElementById("Count" + i).innerHTML = data.count;
-
-        });
-
-        if (signed) {
-            document.getElementById('heart' + i).src = '/Images/heartR.gif';//dislike
-            setTimeout(function () {
-
-                document.getElementById('heart' + i).src = '/Images/heart.png';
-            }, 400);
-        }
-
-    }
-   
-}
-
-
+//preloading images for like/dislike action
+var pics = ["/Images/heart_full.png","/Images/heart.gif","/Images/heart.png","/Images/heartR.gif"];
+var img = new Array();
+for (var j = 0; j < pics.length; j++) {img[j] = new Image();}
 
 var signed = 0;
 var posts = 1;
-var ids = 0;
+var divs = 5;
 var bottom = false;
 CauseOverflow();
+
+
+
 //toastr options (position of notifications)
 toastr.options = {
     timeOut: 2000,

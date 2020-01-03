@@ -1,4 +1,14 @@
-﻿
+﻿.codeComment {
+    color: #12a500;
+    size: 10px;
+}
+.pic {
+    overflow: auto;
+    white-space:nowrap;
+}
+.slide {
+    display: inline-block;
+}
 .newpost {
     min-height: 100px;
     width:100%;

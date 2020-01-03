@@ -44,10 +44,13 @@ namespace MVC.Controllers
 
         public async Task<ActionResult> Json(int id)
         {
+            
             var x = _context.posts.Count();
+            int dbId = x - id+1;
             if (id > x) return Json(new { id = -1 });
-            var posts = await _context.posts.FirstAsync(a => a.id == id);
-            posts.liked = await (_context.like.Where(b => b.post == id && b.username == User.Identity.Name).AnyAsync());
+            var posts = await _context.posts.FirstAsync(a => a.id == dbId);
+            posts.ol = id;
+            posts.liked = await (_context.like.Where(b => b.post == dbId && b.username == User.Identity.Name).AnyAsync());
             return Json(posts);
         }
         public async Task<int> ResolveLikes(int id)

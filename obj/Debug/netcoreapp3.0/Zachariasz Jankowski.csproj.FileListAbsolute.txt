@@ -212,5 +212,3 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Views\Projects\Website.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Views\Shared\footer.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-shm
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-wal

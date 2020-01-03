@@ -5,7 +5,9 @@ var t = document.getElementById('twitter');
 
 
 function Filtering() {
-
+    var wrapper = $('.posts'),
+        items = wrapper.children();
+    var ids = items.length;
 
     for (var j = 0; j <= ids; j++)
     {

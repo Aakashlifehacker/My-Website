@@ -29,19 +29,19 @@ namespace MVC.Controllers
         public IActionResult Website()
         {
 
-            string result;
-            int first=0;
-            using (WebClient client = new WebClient()) {
-            result = client.DownloadString("https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master");}
-            if(result.Contains("relative-time datetime=")){
-                first = result.IndexOf("relative-time datetime=") + "relative-time datetime=".Length + 1;
-            }
+           // string result;
+            //int first=0;
+           // using (WebClient client = new WebClient()) {
+            //result = client.DownloadString("https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master");}
+            //if(result.Contains("relative-time datetime=")){
+           //     first = result.IndexOf("relative-time datetime=") + "relative-time datetime=".Length + 1;
+           // }
             ViewBag.Message = "Projects";
-            DateTime lastcommit = new DateTime();
-            lastcommit = Convert.ToDateTime(result.Substring(first,10));
-            DateTime today = DateTime.Now;
-            int total =(int)(today - lastcommit).TotalDays;
-            ViewData["days"]=total;
+           // DateTime lastcommit = new DateTime();
+           // lastcommit = Convert.ToDateTime(result.Substring(first,10));
+            //DateTime today = DateTime.Now;
+           // int total =(int)(today - lastcommit).TotalDays;
+            ViewData["days"]=0;
             return View();
         }
 

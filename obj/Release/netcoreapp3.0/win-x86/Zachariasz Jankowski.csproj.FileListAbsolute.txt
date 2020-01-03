@@ -193,3 +193,4 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.csproj.CopyComplete
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.pdb
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.csprojAssemblyReference.cache

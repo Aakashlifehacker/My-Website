@@ -55,6 +55,9 @@ namespace Zachariasz_Jankowski.Migrations
                     b.Property<bool>("liked")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ol")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("source")
                         .HasColumnType("TEXT");
 
