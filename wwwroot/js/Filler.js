@@ -62,21 +62,22 @@ function getPost() {
                 data.likes + "</div></div></div>";
                 
         }
-        if (data.id != -1) {
+        if (data.type != -1) {
 
 
 
             var wrapper = $('.posts'),
-                items = wrapper.children();
+            items = wrapper.children();
+            //keeping the number of divs bigger by 5 than the number of posts  
             if (items.length < data.ol + 5) {
-
+                
                 for (var i = 0; i < ((data.ol + 5) - items.length); i++) {
                     wrapper.append($("<div class='container" + divs++ + " col-lg-12'><div/>"));
                 }
             }
-            $(doc).appendTo(".container" + data.ol);
+            $(doc).appendTo(".container" + data.ol);//appending to the predefined div
         }
-        Filtering();
+        Filtering_endtask();
 
     }
     );

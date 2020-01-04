@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <link href="~/css/prism.css" rel="stylesheet"/>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js" SameSite="None"></script>
 </head>
@@ -67,10 +68,11 @@
         function resizer() {//called every time screan size changes
             $(".article").css("min-height", window.innerHeight - 103);
             @resize
-            
+
         }
         $(document).ready(resizer());
     </script>
+    <script src="~/lib/prism/prism.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
