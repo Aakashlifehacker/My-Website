@@ -62,45 +62,28 @@ function getPost() {
                 data.likes + "</div></div></div>";
                 
         }
-        if (data.id != -1) {
+        if (data.type != -1) {
 
 
 
             var wrapper = $('.posts'),
-                items = wrapper.children();
+            items = wrapper.children();
+            //keeping the number of divs bigger by 5 than the number of posts  
             if (items.length < data.ol + 5) {
-
+                
                 for (var i = 0; i < ((data.ol + 5) - items.length); i++) {
                     wrapper.append($("<div class='container" + divs++ + " col-lg-12'><div/>"));
                 }
             }
-            $(doc).appendTo(".container" + data.ol);
+            $(doc).appendTo(".container" + data.ol);//appending to the predefined div
         }
-        Filtering();
+        Filtering_endtask();
 
     }
     );
     
 }
 
-function order() {
-    
-    
-   
-        var wrapper = $('.container'),
-        items = wrapper.children('.post');
-        for (var j = 0; j < items.length; j++) {
-        items = wrapper.children('.post');
-        var arr = [];
-        for (var i = 0; i < items.length; i++) {
-            arr.push(items[i].id.substring(2, 7) - 1)
-        }
-
-        wrapper.append($.map(arr, function (v) { return items[v] }));
-    } 
-        
-   
-}
 
 function howMuchOverflow() {
     var div = document.getElementById('frame').clientHeight;
@@ -119,67 +102,18 @@ window.addEventListener('scroll', event => {
     if (howMuchOverflow() < 50 & !bottom) { getPost(); }
 });
 
-function like(i) {
-
-    
-    if (document.getElementById("heart" + i).getAttribute("data-on")=="true")
-        document.getElementById("heart" + i).setAttribute("data-on", "false")
-    else document.getElementById("heart" + i).setAttribute("data-on", "true");
-    if (document.getElementById("heart" + i).getAttribute("data-on") == "true") {
-        $.getJSON("/feed/like/" + i, function (data) {
-            console.log(data.count);
-            if (data.count == -2) {
-                toastr.warning('Please sign in to like posts!');
-                
-            }
-                
-            else
-               
-                document.getElementById("Count" + i).innerHTML = data.count;
-            
-        });
-        if (signed) {
-            document.getElementById('heart' + i).src = '/Images/heart.gif';
-
-            setTimeout(function () {
-
-                document.getElementById('heart' + i).src = '/Images/heart_full.png';
-            }, 400);
-        }
-        
-    }
-
-    else {
-        $.getJSON("/feed/dislike/" + i, function (data) {
-            console.log(data.count);
-            if (data.count == -2) {
-                toastr.warning('Please sign in to like posts!');
-                
-            }
-            else
-                document.getElementById("Count" + i).innerHTML = data.count;
-
-        });
-
-        if (signed) {
-            document.getElementById('heart' + i).src = '/Images/heartR.gif';//dislike
-            setTimeout(function () {
-
-                document.getElementById('heart' + i).src = '/Images/heart.png';
-            }, 400);
-        }
-
-    }
-   
-}
-
-
+//preloading images for like/dislike action
+var pics = ["/Images/heart_full.png","/Images/heart.gif","/Images/heart.png","/Images/heartR.gif"];
+var img = new Array();
+for (var j = 0; j < pics.length; j++) {img[j] = new Image();}
 
 var signed = 0;
 var posts = 1;
 var divs = 5;
 var bottom = false;
 CauseOverflow();
+
+
 
 //toastr options (position of notifications)
 toastr.options = {

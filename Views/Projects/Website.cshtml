@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "This Website";
 }
 
 
@@ -23,32 +23,33 @@
             <div class="pt-5 col-lg-10 offset-lg-1">
 
 
-                @{
-                    string timeSpan="";
-                    int days = (int)ViewData["days"];
-                    if(days==0)timeSpan="today";
-                    if(days==1)timeSpan="yesterday";
-                    else if(days>0&&days<30)timeSpan=days.ToString()+" days ago";
-                    else if(days>=30){
-                        int fullMonths=days%30;
-                        if(fullMonths==1) timeSpan=fullMonths.ToString()+" month ago";
-                        else timeSpan=fullMonths.ToString()+" months ago";
-                    }
+            @{
+                string timeSpan = "";
+                int days = (int)ViewData["days"];
+                if (days == 0) timeSpan = "today";
+                if (days == 1) timeSpan = "yesterday";
+                else if (days > 0 && days < 30) timeSpan = days.ToString() + " days ago";
+                else if (days >= 30)
+                {
+                    int fullMonths = (days-(days%30))/30;
+                    if (fullMonths == 1) timeSpan = fullMonths.ToString() + " month ago";
+                    else timeSpan = fullMonths.ToString() + " months ago";
                 }
+            }
 
 
 
 
                 <div class="d-flex justify-content-start">
-                    <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Repository: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski"> Link</a></i>
+                    <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski"> Link</a>
                 </div>
 
                 <div class="d-flex justify-content-start">
-                    <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Last update: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master"> @timeSpan</a></i>
+                    <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master"> @timeSpan</a>
                 </div>
 
                 <div class="d-flex justify-content-start">
-                    <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Developer(s):</b> [1] <a target="_blank" href="https://github.com/JankowskiZachariasz">Zachariasz Jankowski</a></i>
+                    <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Developer(s): [1] <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz"> Zachariasz Jankowski</a>
                 </div>
 
 
@@ -67,7 +68,7 @@
                             This website is a .NET Core MVC application. I chose the .NET Core over the full .NET framework because it's lighter, doesn't require Visual Studio, and runs on Linux machines. At the same time, it provides all the functionalities that I need.  The server-side logic is written in C#, and the client-side part consists of HTML, CSS, and javascript.
                         </p>
                         <p class="p-2">
-                            The single feature that I found the most challenging to implement was the dynamic post loading in the feed section. The server-side logic doesn't load any new posts from the server unless the user has scrolled near the page bottom. The posts can be liked, which created a need for authentication and a well-designed database. This is the first web project that I ever completed.
+                            The single feature that I found the most challenging to implement was the dynamic post loading in the feed section. The client-side logic doesn't load any new posts from the server unless the user has scrolled near the page bottom. The posts can be liked, which created a need for authentication and a well-designed database. This is the first web project that I ever completed.
                         </p>
                     </div>
                 </div>
@@ -179,16 +180,66 @@
                         <a target="_blank" href="\Images\projects\ED1.png"><img src="\Images\projects\ED1.png" class="dontexceed d-inline-block mr-1 " alt=""></a>
                         <li>Following the Entity-Relationship guidelines, I decided to add a third table with a composite primary key to resolve the conflict.</li>
                         <a target="_blank" href="\Images\projects\ED2.png"><img src="\Images\projects\ED2.png" class="dontexceed d-inline-block mr-1 " alt=""></a>
-                        <li>I added these tables to my database by creating two new models, adding them to the DbContext, and finally adding a new migration.</li>
+                        <li>I added these tables to my database by creating two new models, adding them to the DbContext, and finally crating a new migration.</li>
                         
                     </ol>
+<pre><code class="lang-cs ml-3 mr-3">
+    public class DataDbContext: DbContext {
 
+    public DbSet < Posts > posts { get; set;}
+    public DbSet < Like > like { get; set;}
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
+        modelBuilder.Entity < Like >().HasKey(c => new {c.username, c.post});
+    }
+
+    public DataDbContext(DbContextOptions < DataDbContext > options): base(options) {}
+
+    }
+</code></pre>
                     </div>
                         </div>
+                    
+                <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('5')"><h4 class="mb-0">Last-Update Feature</h4> <h4 id="i5" class="mb-0 ml-auto mr-2">+</h4> </div>
+                <div id="t5" class="par mb-2">
+                    <div class="p-2">
+                        <p class="p-2">
+                            Each project page shows when was the last time any changes were committed to the designated git repository. To get this information, the server hosting my webpage must download a specified GitHub page and extract the date of the last commit from there. However, doing it when a new client connects to the server and requests a webpage increases loading time dramatically. 
+                        </p>
+                        <p class="p-2">
+                            I realized it's necessary to perform this action periodically and store the results in a database. To achieve this, I chose Hangfire library and added it to my project. This is a function that executes every hour to obtain information about my projects from GitHub:
+                        </p>
+<pre><code class="lang-cs ml-3 mr-3">
+public async Task UpdateDates()
+{
+
+    var projects = await _context.project.ToArrayAsync();
+    for (int i = 0; i < projects.Length; i++) {
+
+        string result;
+        int first = 0;
+
+        using (WebClient client = new WebClient())
+        {result = client.DownloadString(projects[i].remoteAddress);}
+
+        if (result.Contains("relative-time datetime="))
+        first = result.IndexOf("relative-time datetime=") + "relative-time datetime=".Length + 1;
+
+        DateTime lastcommit = Convert.ToDateTime(result.Substring(first, 10));
+        Console.WriteLine(result.Substring(first, 10));
+        DateTime today = DateTime.Now;
+        projects[i].daysAgo = (int)(today - lastcommit).TotalDays;
+        _context.SaveChanges();
+        }        
+
+}
+</code></pre>
+
                     </div>
-
+                </div>
                 
-
+</div>
 
         </div>
         

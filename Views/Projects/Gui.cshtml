@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "GUI Windows App";
 }
 
 
@@ -10,37 +10,46 @@
 
 
 
-        <div class="top_andro m-0 pl-0 pr-0">
+        <div class="top_gui m-0 pl-0 pr-0">
 
 
             <div class="backProject  col-lg-10 offset-lg-1"><a class="backBG p-1 pr-2" href="/Projects"><img src="/Images/arrow.png" width="20" height="20" class="d-inline-block" alt=""><i class="">back to project selection</i></a></div>
 
-            <h1 class="projects d-flex justify-content-center pb-0 mb-0 mt-3"><b class="shadow-sm  titleTop pl-2 pr-2">Receipt Manager</b></h1>
-            <div class="under d-flex justify-content-center mt-0 "><strong class="title pl-2 pr-2 shadow-sm  ">Java || Android Studio </strong></div>
+            <h1 class="projects d-flex justify-content-center pb-0 mb-0 mt-3"><b class="shadow-sm  titleTop pl-2 pr-2">GUI Windows App</b></h1>
+            <div class="under d-flex justify-content-center mt-0 "><strong class="title pl-2 pr-2 shadow-sm  ">Java</strong></div>
 
         </div>
 
         <div class="pt-5 col-lg-10 offset-lg-1">
 
 
+            @{
+                string timeSpan = "";
+                int days = (int)ViewData["days"];
+                if (days == 0) timeSpan = "today";
+                if (days == 1) timeSpan = "yesterday";
+                else if (days > 0 && days < 30) timeSpan = days.ToString() + " days ago";
+                else if (days >= 30)
+                {
+                    int fullMonths = (days-(days%30))/30;
+                    if (fullMonths == 1) timeSpan = fullMonths.ToString() + " month ago";
+                    else timeSpan = fullMonths.ToString() + " months ago";
+                }
+            }
 
 
 
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Repository: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website"> Link</a></i>
+                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/GUI-Windows-App"> Link</a>
             </div>
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Last update:</b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website/commits/master">13 days ago</a></i>
+                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/GUI-Windows-App/commits/master"> @timeSpan</a>
             </div>
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/stats.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Status:</b></i><i class="underDev">Under development</i>
-            </div>
-
-            <div class="d-flex justify-content-start">
-                <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Developer(s):</b> [1] <a target="_blank" href="https://github.com/JankowskiZachariasz">Zachariasz Jankowski</a></i>
+                <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Developer(s): [1] <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz"> Zachariasz Jankowski</a>
             </div>
 
 
@@ -54,66 +63,641 @@
 
             <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('1')"><h4 class="mb-0">Introduction</h4> <h4 id="i1" class="mb-0 ml-auto mr-2">+</h4> </div>
             <div id="t1" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
+                <div class="p-2">
+                    <p class="p-2">
+                        This project was a university assignment. My task was to design and implement a basic GUI application that would send instructions to a small 2-wheeled robot to make it traverse a zigzag of a given length and number of sections. 
+                    </p>
+                    <p class="p-2">
+                        To create a graphical interface for my application, I decided to use the SWT library. As it turned out, this wasn't the best choice as I could have developed all the functionalities just using Swing's JFrame, which is available on every Windows device.
+                    </p>
+                    <a class="d-flex justify-content-center pb-5" target="_blank" href="\Images\projects\gui_screen.png"><img class="dontexceed" src="\Images\projects\gui_screen.png" class="d-inline-block mr-1 " alt=""></a>
+                </div>
             </div>
 
 
-            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('2')"><h4 class="mb-0">Project Structure</h4> <h4 id="i2" class="mb-0 ml-auto mr-2">+</h4> </div>
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('5')"><h4 class="mb-0">Code</h4> <h4 id="i5" class="mb-0 ml-auto mr-2">+</h4> </div>
+            <div id="t5" class="par mb-2">
+                <div class="p-2">
+                    <p>The application consists of 3 Java classes (excluding external libraries):</p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/GUI-Windows-App/blob/master/src/Core.java">Core.java</a><i class="codeComment"> <- Main logic and calculations </i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/GUI-Windows-App/blob/master/src/GUI.java">GUI.java</a><i class="codeComment"> <- initializes GUI and handles its events</i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/GUI-Windows-App/blob/master/src/Traveler.java">Traveler.java</a><i class="codeComment"> <- sends precise, direct instructions to the robot </i></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('2')"><h4 class="mb-0">Requirements</h4> <h4 id="i2" class="mb-0 ml-auto mr-2">+</h4> </div>
             <div id="t2" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
+                <div class="p-2">
+                    <br/>
+                    <h4>Functional Requirements</h4>
+                    <ol>
+                        <li class="pt-2">Program should display a Graphical User Interface which enables user to enter:
+                            <ul>
+                                <li>Length of a zigzag section in centimetres (range: 20cm - 80cm)</li>
+                                <li>The number of zigzag sections (number must be even and should not exceed 10)</li>
+                            </ul>
+                        </li>
+                        <li class="pt-2">Program should check the input data and prompt user with an error message in case it doesn’t meet the requirements.</li>
+                        <li class="pt-2">Finch robot, operated by the program, should move in a zigzag fashion - accordingly to the
+                        input data, given by the user. Calculated zigzag path should be travelled both ways. A turnaround manoeuvre must be done midway through. </li>
+                        <li class="pt-2">Instructions received by the robot should be fine-tuned so that the actual travelled distances
+                        are close to those specified by the user</li>
+                        <li class="pt-2">Finch robot should move with a randomly generated velocity.</li>
+                        <li class="pt-2">Finch robot should light a correct colour of its LED while traversing each of the zigzag
+                        sections (alternately green and red).</li>
+                        <li class="pt-2">Finch robot should make a sound with its buzzer while traversing each of the zigzag sections
+                        (the sound should be altered after reaching to every next section - resulting in 2 tunes
+                        sounding alternately).</li>
+                        <li class="pt-2">Program should write the following information to a text file:
+                            <ul>
+                                <li>Length of a traversed path</li>
+                                <li>The distance travelled</li>
+                                <li>The start time and the end time</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+                    <br/>
+                    <h4>Functional Requirements -> GUI Design</h4>
+                    
+                    <a target="_blank" href="\Images\projects\design.png"><img src="\Images\projects\design.png" class="dontexceed d-inline-block mr-1 " alt=""></a>
+                    <br/>
+                    <br/>
+                    <h4>GUI Design -> GUI System Requirements</h4>
+                    <ol>
+                        <li class="pt-2">Initializing the GUI widgets:
+                            <ul>
+                                <li>2 input boxes</li>
+                                <li>2 Labels </li>
+                                <li>Button </li>
+                                <li>Progress Bar </li>
+                                <li>Canvas (for displaying the preview) </li>
+                            </ul>
+                        </li>
+                        <li class="pt-2">Displaying the preview </li>
+                        <li class="pt-2">Showing progress with the progress bar</li>
+                        <li class="pt-2">Changing ‘start’ button to ‘abort’ button</li>
+                        <li class="pt-2">Sending user’s input to the core part of the program</li>
+                        <li class="pt-2">Aborting execution of the program once ‘abort button’ has been clicked</li>
+                    </ol>
+                    <br/>
+
+                </div>
             </div>
 
-            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('3')"><h4 class="mb-0">Scripts</h4> <h4 id="i3" class="mb-0 ml-auto mr-2">+</h4> </div>
+
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('7')"><h4 class="mb-0">Variables</h4> <h4 id="i7" class="mb-0 ml-auto mr-2">+</h4> </div>
+            <div id="t7" class="par mb-2">
+                <div class="p-2 pt-4 pb-4">
+<div class="pic">
+<table class="table-sm table-striped">
+    <tbody>
+        <tr class="table-dark">
+            <td width="182" valign="top">
+                <p>
+                    <strong>Name</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    <strong>Type</strong>
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    <strong>Physical unit / format </strong>
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    <strong>Description</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>length</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Float
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    Centimetres
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Length of each section
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>zigzagQuantity</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Integer
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    N/A
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Quantity of sections
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>velocity</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Integer
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    N/A
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Value used in a <em>‘setWheelVelocities()’</em> method as a
+                    velocity for both wheels
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>startTime</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    String
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    HH:MM:SS
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Time when finch starts traversing the Zigzag
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>timeSection</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Integer
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    Milliseconds
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Time needed for traversing one section
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>sectionPairs</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Integer
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    N/A
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Quantity of section pairs that are yet to be traversed
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>pathLength</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Double
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    Centimetres
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Summarized distance travelled by the finch from the start
+                    to the finish point
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>distance</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    Double
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    Centimetres
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Straight line distance travelled by the finch
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="182" valign="top">
+                <p>
+                    <strong>endTime</strong>
+                </p>
+            </td>
+            <td width="132" valign="top">
+                <p>
+                    String
+                </p>
+            </td>
+            <td width="162" valign="top">
+                <p>
+                    HH:MM:SS
+                </p>
+            </td>
+            <td width="164" valign="top">
+                <p>
+                    Time when finch arrives back at the start point
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+                </div>
+            </div>
+
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('3')"><h4 class="mb-0">Flowchart</h4> <h4 id="i3" class="mb-0 ml-auto mr-2">+</h4> </div>
             <div id="t3" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
-            </div>
 
-            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('4')"><h4 class="mb-0">Database</h4> <h4 id="i4" class="mb-0 ml-auto mr-2">+</h4> </div>
-            <div id="t4" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
+                <div class="p-2">
 
+                <br/>
+                <br/>
+                <a class="pt-5" target="_blank" href="\Images\projects\graph1.png"><img src="\Images\projects\graph1.png" width="100%" class="d-inline-block mr-1 " alt=""></a>
+                <a target="_blank" href="\Images\projects\graph2.png"><img src="\Images\projects\graph2.png" width="100%" class="d-inline-block mr-1 " alt=""></a>
 
-
-
-
-
-
-
-
+                </div>
             </div>
 
 
 
-            <footer class="cpr">
-                <hr>
-                <small class="d-flex justify-content-center">jankowski.zachariasz@gmail.com</small>
-                <small class="d-flex justify-content-center">&copy; Copyright 2019, Zachariasz Jankowski</small>
-            </footer>
+
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('6')"><h4 class="mb-0">Testing</h4> <h4 id="i6" class="mb-0 ml-auto mr-2">+</h4> </div>
+            <div id="t6" class="par mb-2">
+                <div class="p-2 pt-4 pb-4">
+                    <div class="pic">
+<table class="table-sm table-striped">
+    <tbody>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Requirement
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Test
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Expected Result
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Actual Result
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    1
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    GUI enables user to enter Length and Quantity.
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    An attempt to type some numbers into the text boxes.
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    It should be possible to type some numbers into the text
+                    boxes
+                </p>
+            </td>
+            <td class="table-success" width="189" nowrap="" valign="top">
+                <p>
+                    ✓ - it is possible.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" rowspan="2" valign="top">
+                <p>
+                    2
+                </p>
+            </td>
+            <td width="189" nowrap="" rowspan="2" valign="top">
+                <p>
+                    Input is validated
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+            Trying to run the program with following input:<br/>
+            <strong> length</strong> = (1, 3, -43, 19.9, 82, 80.0001);<br/>
+            <strong>quantity</strong> = (0, 1, 3, 4.5, 5, 7, 9, -10.2, 100, 14);
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Program should consider this input invalid
+                </p>
+            </td>
+            <td class="table-success"  width="189" nowrap="" valign="top">
+                <p>
+                    ✓- program doesn’t accept this input
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="189" nowrap="" valign="top">
+                <p>
+            Trying to run the program with the following input:<br/>
+            <strong>length</strong> = (20, 21, 22, 89, 75, 80, 79.99998) <br/>
+            <strong>quantity</strong> = (2, 4, 6, 8, 10);
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Program should consider this input valid
+                </p>
+            </td>
+            <td class="table-success"  width="189" nowrap="" valign="top">
+                <p>
+                    ✓- program accepts this input
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    3
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Finch moves in accordance to the task description
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Starting program with length = 20 and number of sections = 4
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Finch should traverse 4 zigzag sections, turn around and
+                    traverse them once again finishing at the starting point
+                </p>
+            </td>
+            <td class="table-success"  width="189" nowrap="" valign="top">
+                <p>
+                    ✓- finch does exactly that
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    4
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Robot is fine-tuned to travel approximately the given
+                    length
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Starting program with length= 20 and number of sections = 4
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Finch should traverse 2 sections of length 20cm
+                </p>
+            </td>
+            <td class="table-danger"  width="189" nowrap="" valign="top">
+                <p>
+                    ❌-finch traversed 2 sections of length 30cm
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    5
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Velocity is randomly generated
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Generating 1000 numbers with the algorithm
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Their mean value should be close to (150+50)/2=100
+                </p>
+            </td>
+            <td class="table-success"  width="189" nowrap="" valign="top">
+                <p>
+                    ✓ mean value = 99
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    6
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Finch lights up its LED in accordance to the task description
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Starting program with length = 20 and number of sections = 4
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Program should light up red LED 4 times in total 
+                </p>
+            </td>
+            <td  class="table-success" width="189" nowrap="" valign="top">
+                <p>
+                    ✓- finch does exactly that
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    7
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Finch makes sound with its buzzer in accordance to the task
+                    description
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Starting program with length = 20 and number of sections = 4
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Program should play tune1 4 times in total
+                </p>
+            </td>
+            <td class="table-success"  width="189" nowrap="" valign="top">
+                <p>
+                    ✓- finch does exactly that
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="19" nowrap="" valign="top">
+                <p>
+                    8
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Program writes data to a text file
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    Checking if program works even if the file already contains
+                    some data
+                </p>
+            </td>
+            <td width="189" nowrap="" valign="top">
+                <p>
+                    The Program should simply replace 4 lines from the
+                    beginning with its data
+                </p>
+            </td>
+            <td  class="table-success" width="189" nowrap="" valign="top">
+                <p>
+                    ✓- Program cleared the file, and wrote its data
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+                    </div>
+                </div>
+            </div>
 
 
 
 
-
-            <!-- <button type="button" class="d-flex justify-content-start btn-block collapsible">Introduction</button>
-             <p class="pt-1 par" >I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
         </div>
+
+
+
+
+    </div>
+
+    <div class="d-flex justify-content-center bg-white  col-lg-6 offset-lg-3 ">
+        <partial name="footer" />
+    </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="~/js/folding.js"></script>
+<script>
+    toggle('1');
+</script>
 

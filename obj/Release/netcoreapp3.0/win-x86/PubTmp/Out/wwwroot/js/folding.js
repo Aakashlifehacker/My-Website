@@ -10,5 +10,3 @@ function toggle(a) {
         document.getElementById("i" + a).innerHTML = "-";
     }
 }
-
-toggle('1')

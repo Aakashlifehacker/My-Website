@@ -68,6 +68,22 @@ namespace Zachariasz_Jankowski.Migrations
 
                     b.ToTable("posts");
                 });
+
+            modelBuilder.Entity("Zachariasz_Jankowski.Models.Projects", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("daysAgo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("remoteAddress")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("project");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -194,3 +194,16 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.pdb
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.csprojAssemblyReference.cache
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\data.db-shm
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\data.db-wal
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Dapper.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.AspNetCore.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.Core.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.SQLite.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.SqlServer.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\System.Data.SqlClient.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\es\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\nl\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\pt-BR\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\zh\Hangfire.Core.resources.dll

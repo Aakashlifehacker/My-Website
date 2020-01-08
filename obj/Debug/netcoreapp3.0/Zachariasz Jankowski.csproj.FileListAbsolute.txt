@@ -161,8 +161,6 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtime
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
@@ -212,3 +210,20 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Views\Projects\Website.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Razor\Views\Shared\footer.cshtml.g.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Hangfire.AspNetCore.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Hangfire.Core.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Hangfire.SqlServer.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\System.Data.SqlClient.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\es\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\nl\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\pt-BR\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\zh\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Dapper.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Hangfire.SQLite.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cache
+c:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-shm
+c:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-wal

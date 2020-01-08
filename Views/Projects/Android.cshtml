@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Receipt Manager";
 }
 
 
@@ -16,31 +16,40 @@
             <div class="backProject  col-lg-10 offset-lg-1"><a class="backBG p-1 pr-2" href="/Projects"><img src="/Images/arrow.png" width="20" height="20" class="d-inline-block" alt=""><i class="">back to project selection</i></a></div>
 
             <h1 class="projects d-flex justify-content-center pb-0 mb-0 mt-3"><b class="shadow-sm  titleTop pl-2 pr-2">Receipt Manager</b></h1>
-            <div class="under d-flex justify-content-center mt-0 "><strong class="title pl-2 pr-2 shadow-sm  ">Java || Android Studio </strong></div>
+            <div class="under d-flex justify-content-center mt-0 "><strong class="title pl-2 pr-2 shadow-sm  ">Android || Google API</strong></div>
 
         </div>
 
-        <div class="fnt pt-5 col-lg-10 offset-lg-1">
+        <div class="pt-5 col-lg-10 offset-lg-1">
 
 
+            @{
+                string timeSpan = "";
+                int days = (int)ViewData["days"];
+                if (days == 0) timeSpan = "today";
+                if (days == 1) timeSpan = "yesterday";
+                else if (days > 0 && days < 30) timeSpan = days.ToString() + " days ago";
+                else if (days >= 30)
+                {
+                    int fullMonths = (days-(days%30))/30;
+                    if (fullMonths == 1) timeSpan = fullMonths.ToString() + " month ago";
+                    else timeSpan = fullMonths.ToString() + " months ago";
+                }
+            }
 
 
 
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Repository: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website"> Link</a></i>
+                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Receipt-Manager"> Link</a>
             </div>
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Last update: </b><a target="_blank" href="https://github.com/JankowskiZachariasz/My-Website/commits/master">13 days ago</a></i>
+                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Receipt-Manager/commits/master"> @timeSpan</a>
             </div>
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/stats.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Status: </b><a href="#">Under development</a></i>
-            </div>
-
-            <div class="d-flex justify-content-start">
-                <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt=""><i><b>Developer(s): </b> [1] <a target="_blank" href="https://github.com/JankowskiZachariasz">Zachariasz Jankowski</a></i>
+                <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Developer(s): [1] <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz"> Zachariasz Jankowski</a>
             </div>
 
 
@@ -54,66 +63,79 @@
 
             <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('1')"><h4 class="mb-0">Introduction</h4> <h4 id="i1" class="mb-0 ml-auto mr-2">+</h4> </div>
             <div id="t1" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
+                <div class="p-2">
+                    <p class="p-2">
+                        This website is a .NET Core MVC application. I chose the .NET Core over the full .NET framework because it's lighter, doesn't require Visual Studio, and runs on Linux machines. At the same time, it provides all the functionalities that I need.  The server-side logic is written in C#, and the client-side part consists of HTML, CSS, and javascript.
+                    </p>
+                    <p class="p-2">
+                        The single feature that I found the most challenging to implement was the dynamic post loading in the feed section. The server-side logic doesn't load any new posts from the server unless the user has scrolled near the page bottom. The posts can be liked, which created a need for authentication and a well-designed database. This is the first web project that I ever completed.
+                    </p>
+                </div>
             </div>
 
 
             <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('2')"><h4 class="mb-0">Project Structure</h4> <h4 id="i2" class="mb-0 ml-auto mr-2">+</h4> </div>
             <div id="t2" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
+                <div class="p-2">
+
+
+
+                    <p class=" p-2 ">This project was generated and built with the <a target="_blank" href="https://computersciencebypolishguy.blogspot.com/2020/01/mvc-design-pattern.html"> MVC design pattern</a> in mind. Hence, it has a very straightforward structure that I will briefly introduce in this section. </p>
+                    <a target="_blank" href="\Images\projects\Project_Structure.png"><img src="\Images\projects\Project_Structure.png" width="100%" class="d-inline-block mr-1 " alt=""></a>
+                    <p class="p-2">Following are some essential project files that I've been working on:</p>
+                    <p class="pl-4 "><b>Controllers</b> - their code is executed in response to incoming client requests. There is a separate Controller for every section of this website.</p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Controllers/FeedController.cs">FeedController.cs</a> <i class="codeComment"> <- Sends posts to the client</i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Controllers/ProjectsController.cs">ProjectsController.cs</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Controllers/AboutMeController.cs">AboutMeController.cs</a></li>
+
+                    </ul>
+                    <p class="pl-4 "><b>Models</b> - Based on their structure, the Entity Framework generates tables in MySQL databases. Furthermore, they come in handy while accessing or modifying the existing data.</p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Models/Like.cs">Like.cs</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Models/Posts.cs">Posts.cs</a></li>
+
+
+                    </ul>
+                    <p class="pl-4 "><b>Views </b>are the actual documents in the form of cshtml files that are sent to a client. They contain some C# code that gets processed by RazorPages on the server-side.   </p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Shared/_Layout.cshtml">_Layout.cshtml</a><i class="codeComment"> <- Parts that are common for all the sections </i> </li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Feed/Index.cshtml">Feed/Index.cshtml.cs</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/AboutMe/Index.cshtml">AboutMe/Index.schtml</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/Views/Projects/Index.cshtml">Projects/Index.schtml</a></li>
+
+
+                    </ul>
+                    <p class="pl-4 "><b>Scripts</b> - client-side javascript code.</p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/Filler.js">Filler.js</a><i class="codeComment"> <- pulls posts from the server </i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/like.js">like.js</a><i class="codeComment"> <- processes like & dislike actions </i></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/copy.js">copy.js</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/filter.js">filter.js</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/folding.js">folding.js</a></li>
+                        <li><a target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/blob/master/wwwroot/js/projects.js">projects.js</a></li>
+
+                    </ul>
+                </div>
             </div>
 
-            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('3')"><h4 class="mb-0">Scripts</h4> <h4 id="i3" class="mb-0 ml-auto mr-2">+</h4> </div>
-            <div id="t3" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
-            </div>
 
-            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('4')"><h4 class="mb-0">Database</h4> <h4 id="i4" class="mb-0 ml-auto mr-2">+</h4> </div>
-            <div id="t4" class="par mb-2">
-                <p class=" p-2 ">I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p>
-
-
-
-
-
-
-
-
-
-            </div>
-
-
-
-            <footer class="cpr">
-                <hr>
-                <small class="d-flex justify-content-center">jankowski.zachariasz@gmail.com</small>
-                <small class="d-flex justify-content-center">&copy; Copyright 2019, Zachariasz Jankowski</small>
-            </footer>
-
-
-
-
-
-            <!-- <button type="button" class="d-flex justify-content-start btn-block collapsible">Introduction</button>
-             <p class="pt-1 par" >I was inspired to build this website after I realised that there's no better way to showcase my coding skills than by creating my online presence. I used ASP.NET and C# for the back-end and Bootstrap with some standard javascript libraries for the front-end. The most challenging part was to create the feed section. It combines all the contents that I post on various social media in one place.</p> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
         </div>
+
+
+
+
+    </div>
+
+    <div class="d-flex justify-content-center bg-white  col-lg-6 offset-lg-3 ">
+        <partial name="footer" />
+    </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="~/js/folding.js"></script>
+<script>
+    toggle('1');
+</script>
 

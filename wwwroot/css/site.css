@@ -5,7 +5,7 @@
     color: #12a500;
     size: 10px;
 }
-.pic {
+.pic{
     overflow: auto;
     white-space:nowrap;
 }
@@ -61,12 +61,30 @@
     background-color: rgba(2,2,2,.9);
 }
 
-.top_account {
+.top_gui {
     padding-top: 150px;
     background-image: url("/Images/profile_background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     min-height: 220px;
+}
+.top_platformer {
+    padding-top: 40px;
+    background-image: url("/Images/platformer.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.top_gui{
+    padding-top: 40px;
+    background-image: url("/Images/guiPhoto.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.top_finch {
+    padding-top: 40px;
+    background-image: url("/Images/finchPhoto.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .top_andro {
