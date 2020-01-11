@@ -225,5 +225,3 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Dapper.
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\Hangfire.SQLite.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Debug\netcoreapp3.0\Zachariasz Jankowski.MvcApplicationPartsAssemblyInfo.cache
-c:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-shm
-c:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Debug\netcoreapp3.0\data.db-wal
