@@ -212,8 +212,6 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\Zacha
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\Zachariasz Jankowski.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\Zachariasz Jankowski.pdb
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\data.db
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\data.db-shm
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\data.db-wal
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\Dapper.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\Hangfire.AspNetCore.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\Hangfire.Core.dll

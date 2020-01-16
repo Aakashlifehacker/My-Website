@@ -194,8 +194,6 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.pdb
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Zachariasz Jankowski.csprojAssemblyReference.cache
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\data.db-shm
-C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\data.db-wal
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Dapper.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.AspNetCore.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\Hangfire.Core.dll
