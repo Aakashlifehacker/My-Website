@@ -1,4 +1,4 @@
-﻿var pics = ["Images/web", "/Images/rece","/Images/finch","/Images/android","/Images/gui"];
+﻿var pics = ["Images/web", "/Images/rece", "/Images/finch", "/Images/android", "/Images/gui","/Images/node"];
 for(var i=1;i<=pics.length;i++){$(".k"+i).css("background-image", "url('"+pics[i-1]+".png')");}//setting background images for project tiles
 var images = new Array();
 for (i = 0; i < pics.length; i++) {images[i] = new Image(); images[i].src = pics[i]+"_hovered.png";}//preloading images
@@ -16,7 +16,7 @@ function resize() {
     // $(".rs4").css("height", txt4);
 
 
-    for(var i=1;i<=5;i++){
+    for(var i=1;i<=6;i++){
         if(window.innerWidth >=992){
             $("#p"+i).css("visibility", "hidden");
         }
@@ -31,7 +31,7 @@ $(document).ready(resize());
 
 
 
-for(var i=1;i<=5;i++){
+for(var i=1;i<=6;i++){
     $(".k"+i).hover(function () {
         var number = $(this).data('num');
         $(this).css("background-image", "url('"+pics[number-1]+"_hovered.png')");

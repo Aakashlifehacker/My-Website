@@ -31,21 +31,25 @@
                 else if (days > 0 && days < 30) timeSpan = days.ToString() + " days ago";
                 else if (days >= 30)
                 {
-                    int fullMonths = (days-(days%30))/30;
+                    int fullMonths = (days - (days % 30)) / 30;
                     if (fullMonths == 1) timeSpan = fullMonths.ToString() + " month ago";
                     else timeSpan = fullMonths.ToString() + " months ago";
                 }
             }
 
+            <div class=" d-flex justify-content-center p-1">
+                <p class="bg-warning pt-1 pb-2 pl-3 pr-3">This article awaits completion</p>
+            </div><br />
+
 
 
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski"> Link</a>
+                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Finch-Driver"> Link</a>
             </div>
 
             <div class="d-flex justify-content-start">
-                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Zachariasz-Jankowski/commits/master"> @timeSpan</a>
+                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/Finch-Driver/commits/master"> @timeSpan</a>
             </div>
 
             <div class="d-flex justify-content-start">
@@ -65,18 +69,36 @@
             <div id="t1" class="par mb-2">
                 <div class="p-2">
                     <p class="p-2">
-                        This website is a .NET Core MVC application. I chose the .NET Core over the full .NET framework because it's lighter, doesn't require Visual Studio, and runs on Linux machines. At the same time, it provides all the functionalities that I need.  The server-side logic is written in C#, and the client-side part consists of HTML, CSS, and javascript.
+                        I started this project by mistake. I got a university task, which was about making a 2-wheeled robot traverse a zigzag with perpendicular sections. The robot had a tiny slot for a pen or pencil at its back, which made me think that it must draw the shape instead of traversing it. This program allows specifying a list of points that the robot traverses in such a way that the pen attached to its back draws a line that connects these points. The result is a very complex movement of the robot (especially when it comes to drawing perpendicular lines).
                     </p>
                     <p class="p-2">
-                        The single feature that I found the most challenging to implement was the dynamic post loading in the feed section. The server-side logic doesn't load any new posts from the server unless the user has scrolled near the page bottom. The posts can be liked, which created a need for authentication and a well-designed database. This is the first web project that I ever completed.
+                        The way it works is that the program simulates the robot's position and is thus able to predict which move will keep it closer to the specified path. An example input would look like so:
                     </p>
+
+<pre><code class="lang-java ml-3 mr-3">
+    map=new Point[5];
+
+    map[0]=new Point(0,-50);
+    map[1]=new Point(50,-50);
+    map[2]=new Point(-50,-50);
+    map[3]=new Point(0,-50);
+    map[4]=new Point(0,-100);
+
+    executer(map);
+</code></pre>
+                    <p class="p-2">
+                        And this is what the robot ends up drawing:
+                    </p>
+
+                    <a class="d-flex justify-content-center pb-5" target="_blank" href="~/Images/projects/cross.jpg"><img class="d-inline-block mr-1 dontexceed mb-5" src="~/Images/projects/cross.jpg" alt=""></a>
+
                 </div>
             </div>
 
 
 
 
- 
+
         </div>
 
 
@@ -92,6 +114,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="~/js/folding.js"></script>
 <script>
-    toggle('1');
+    $(document).ready(toggle('1'));
 </script>
 

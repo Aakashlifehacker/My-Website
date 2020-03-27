@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Finch Robot Driver";
+}
+
+
+
+
+<main>
+    <div class="bg-white article container col-lg-6 offset-lg-3 pl-0 pr-0">
+
+
+
+        <div class="top_node m-0 pl-0 pr-0">
+
+
+            <div class="backProject  col-lg-10 offset-lg-1"><a class="backBG p-1 pr-2" href="/Projects"><img src="/Images/arrow.png" width="20" height="20" class="d-inline-block" alt=""><i class="">back to project selection</i></a></div>
+
+            <h1 class="projects d-flex justify-content-center pb-0 mb-0 mt-3"><b class="shadow-sm  titleTop pl-2 pr-2">Receiptify Server</b></h1>
+            <div class="under d-flex justify-content-center mt-0 "><strong class="title pl-2 pr-2 shadow-sm  ">Node.js  ||  MongoDB</strong></div>
+
+        </div>
+
+        <div class="pt-5 col-lg-10 offset-lg-1">
+
+
+            @{
+                string timeSpan = "";
+                int days = (int)ViewData["days"];
+                if (days == 0) timeSpan = "today";
+                if (days == 1) timeSpan = "yesterday";
+                else if (days > 0 && days < 30) timeSpan = days.ToString() + " days ago";
+                else if (days >= 30)
+                {
+                    int fullMonths = (days - (days % 30)) / 30;
+                    if (fullMonths == 1) timeSpan = fullMonths.ToString() + " month ago";
+                    else timeSpan = fullMonths.ToString() + " months ago";
+                }
+            }
+
+            <div class=" d-flex justify-content-center p-1">
+                <p class="bg-warning pt-1 pb-2 pl-3 pr-3">This article awaits completion</p>
+            </div><br />
+
+
+
+
+            <div class="d-flex justify-content-start">
+                <img src="/Images/icons/dt.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Repository: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/ReceiptifyNode"> Link</a>
+            </div>
+
+            <div class="d-flex justify-content-start">
+                <img src="/Images/icons/calendar.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Last update: <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz/ReceiptifyNode/commits/master"> @timeSpan</a>
+            </div>
+
+            <div class="d-flex justify-content-start">
+                <img src="/Images/icons/ppl.png" width="20" height="20" class="d-inline-block mr-1 " alt="">Developer(s): [1] <a class="pl-1" target="_blank" href="https://github.com/JankowskiZachariasz"> Zachariasz Jankowski</a>
+            </div>
+
+
+
+            <hr>
+
+
+
+
+
+
+            <div class="sect  p-1 pl-2 rounded d-flex d-inline-block" onclick="toggle('1')"><h4 class="mb-0">Introduction</h4> <h4 id="i1" class="mb-0 ml-auto mr-2">+</h4> </div>
+            <div id="t1" class="par mb-2">
+                <div class="p-2">
+                    <p class="p-2">
+                        This website allows users to manage their receipts in a database. The project makes good use of the ejs engine, which is a node.js counterpart od Razer Pages.
+                    </p>
+                    <p class="p-2">
+                        Apart from hosting webpages, this server can also (and is primarely designed to) work with the Android app that I am developing together with other students.
+                    </p>
+                    <p class="p-2">
+                        The project uses the Mongo database, which I believe was a perfect choice in this particular scenario. The full description of the project is coming soon!
+                    </p>
+                    
+
+                    <a class="d-flex justify-content-center pb-5" target="_blank" href="~/Images/projects/screenshots.png"><img class="d-inline-block mr-1 dontexceed mb-5" src="~/Images/projects/screenshots.png" alt=""></a>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <div class="d-flex justify-content-center bg-white  col-lg-6 offset-lg-3 ">
+        <partial name="footer" />
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="~/js/folding.js"></script>
+<script>
+    $(document).ready(toggle('1'));
+</script>
+

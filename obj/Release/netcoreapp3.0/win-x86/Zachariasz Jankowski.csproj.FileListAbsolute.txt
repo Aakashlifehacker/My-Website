@@ -205,3 +205,4 @@ C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\pt-BR\Hangfire.Core.resources.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\zh-TW\Hangfire.Core.resources.dll
 C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\bin\Release\netcoreapp3.0\win-x86\zh\Hangfire.Core.resources.dll
+C:\Users\Zachariasz\Desktop\Zachariasz Jankowski\obj\Release\netcoreapp3.0\win-x86\Razor\Views\Projects\Node.cshtml.g.cs

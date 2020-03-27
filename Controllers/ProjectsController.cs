@@ -35,6 +35,13 @@ namespace MVC.Controllers
             return View();
         }
 
+        public IActionResult Node()
+        {
+
+            ViewBag.Message = "Node";
+            ViewData["days"] = _context.project.First(a => a.id == "Node").daysAgo;
+            return View();
+        }
         public IActionResult Website()
         {
 
@@ -47,6 +54,7 @@ namespace MVC.Controllers
         {
             ViewBag.Message = "Projects";
             ViewData["days"] = _context.project.First(a => a.id == "ReceiptManager").daysAgo;
+            ViewData["daysBE"] = _context.project.First(a => a.id == "ReceiptServer").daysAgo;
             return View();
         }
 

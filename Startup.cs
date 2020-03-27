@@ -73,8 +73,11 @@ namespace Zachariasz_Jankowski
             }
             else
             {
-                
-                app.UseHsts();
+                app.UseHangfireDashboard("/hangfire");
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+
+                //app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
